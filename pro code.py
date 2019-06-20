@@ -4,7 +4,6 @@ import csv
 import time
 import datetime
 import numpy as np
-import numpy as np
 import pandas as pd
 import tkinter as tk
 from PIL import Image
@@ -45,8 +44,6 @@ def is_number(s):
 
     return False
 
-
-#####################################################################################
 
 def TakeImages():
     Id = (txt.get())
@@ -90,41 +87,30 @@ def TakeImages():
 
 
 def TrainImages():
-    # recognizer = cv2.face_LBPHFaceRecognizer.create()
-    # recognizer = cv2.face.LBPHFaceRecognizer_create()
-    recognizer = cv2.face.createLBPHFaceRecognizer()
-    # $cv2.createLBPHFaceRecognizer()
-    harcascadePath = "haarcascade_frontalface_default.xml"
-    detector = cv2.CascadeClassifier(harcascadePath)
+    recognizer = cv2.face.LBPHFaceRecognizer_create()
+    detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml");
+
+    def getImagesAndLabels(path):
+        imagePaths = [os.path.join(path, f) for f in os.listdir(path)]
+        faceSamples = []
+        ids = []
+        for imagePath in imagePaths:
+            PIL_img = Image.open(imagePath).convert('L')
+            img_numpy = np.array(PIL_img, 'uint8')
+            id = int(os.path.split(imagePath)[-1].split(".")[1])
+            faces = detector.detectMultiScale(img_numpy)
+            for (x, y, w, h) in faces:
+                faceSamples.append(img_numpy[y:y + h, x:x + w])
+                ids.append(id)
+        return faceSamples, ids
+
     faces, Id = getImagesAndLabels("TrainingImage")
     recognizer.train(faces, np.array(Id))
     recognizer.save("TrainingImageLabel\Trainner.yml")
-    res = "Image Trained"  # +",".join(str(f) for f in Id)
-    message.configure(text=res)
 
+    message.configure(text="Image Trained")
 
-def getImagesAndLabels(path):
-    # get the path of all the files in the folder
-    imagePaths = [os.path.join(path, f) for f in os.listdir(path)]
-    # print(imagePaths)
-
-    # create empth face list
-    faces = []
-    # create empty ID list
-    Ids = []
-    # now looping through all the image paths and loading the Ids and the images
-    for imagePath in imagePaths:
-        # loading the image and converting it to gray scale
-        pilImage = Image.open(imagePath).convert('L')
-        # Now we are converting the PIL image into numpy array
-        imageNp = np.array(pilImage, 'uint8')
-        # getting the Id from the image
-        Id = int(os.path.split(imagePath)[-1].split(".")[1])
-        # extract the face from the training image sample
-        faces.append(imageNp)
-        Ids.append(Id)
-    return faces, Ids
-
+#####################################################################################
 
 def TrackImages():
     recognizer = cv2.face.LBPHFaceRecognizer_create()  # cv2.createLBPHFaceRecognizer()
@@ -173,7 +159,6 @@ def TrackImages():
     # print(attendance)
     res = attendance
     message2.configure(text=res)
-
 
 #####################################################################################
 
