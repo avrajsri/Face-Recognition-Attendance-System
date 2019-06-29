@@ -34,3 +34,5 @@ setuptools		40.8.0
 six			1.12.0
 
 sqlparse		0.3.0
+
+opencv-contrib-python	4.1.0.25	
