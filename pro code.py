@@ -90,7 +90,7 @@ def TakeImages():
                 sampleNum = sampleNum + 1
                 cv2.imwrite("TrainingImage\ " + name + "." + Id + '.' + str(sampleNum) + ".jpg", gray[y:y + h, x:x + w])
                 cv2.imshow('frame', img)
-            if sampleNum > 60:
+            if sampleNum > 30:
                 break
         cam.release()
         cv2.destroyAllWindows()
