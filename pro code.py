@@ -188,10 +188,6 @@ def TrackImages():
     fileName = "Attendance\Attendance_" + date + "_" + Hour + "-" + Minute + "-" + Second + ".csv"
     attendance.to_csv(fileName, index=False)
 
-    #fileName = "Attendance\Attendance_" + date + "_" + Hour + ".csv"
-    #with open(fileName, 'a') as f:
-    #    attendance.to_csv(f, index=False)
-
     cam.release()
     cv2.destroyAllWindows()
     message2.configure(text=attendance)
