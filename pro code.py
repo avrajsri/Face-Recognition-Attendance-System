@@ -103,10 +103,6 @@ def TakeImages():
         if (is_number(Id)):
             res = "Enter Alphabetical Name"
             message.configure(text=res)
-        if (name.isalpha()):
-            res = "Enter Numeric Id"
-            message.configure(text=res)
-
 
 def TrainImages():
     recognizer = cv2.face.LBPHFaceRecognizer_create()
