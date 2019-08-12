@@ -114,7 +114,7 @@ def TakeImages():
                 cv2.imshow('frame', img)
             if cv2.waitKey(25) & 0xFF == ord('a'):
                 break
-            elif sampleNum > 29:
+            elif sampleNum > 59:
                 break
 
         cam.release()
