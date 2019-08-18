@@ -1,4 +1,4 @@
-import os, cv2, csv, datetime
+import os, cv2, csv
 import numpy as np
 import pandas as pd
 from tkinter import *
