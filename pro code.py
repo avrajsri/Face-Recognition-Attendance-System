@@ -1,9 +1,7 @@
 import os, cv2, csv, datetime
 import numpy as np
 import pandas as pd
-from tkinter import *
-from time import *
-from PIL import Image
+
 
 root = Tk()
 root.geometry('690x550')
