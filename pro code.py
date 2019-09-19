@@ -215,7 +215,7 @@ def TrackImages():
 
     cam.release()
     cv2.destroyAllWindows()
-    message.configure(text="Attendance Complete")
+    count=0
 
     with open(fileName, 'r')as r:
         data = csv.reader(r)
@@ -224,7 +224,11 @@ def TrackImages():
         z3="     "
         z4="          "
         for row in data:
+            count+=1
             listNodes.insert(END, z1 + row[2] + z2 + row[3] + z3 + row[0] + z4 + row[1])
+
+    count=count-1
+    message.configure(text=str(count)+ " Students Attendance Record")
 
 
 takeImg = Button(root, text="Take Images", command=TakeImages, bg="#3eff00", activebackground="#0055ff", activeforeground="white", bd=4, font=('times', 15, ' bold '))
