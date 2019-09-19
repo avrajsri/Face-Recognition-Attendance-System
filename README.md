@@ -2,7 +2,6 @@
 Using OpenCV
 
 Attendance Record in CSV File
-
 <h1>Project Requirements</h1>
 
 Pillow			6.0.0
