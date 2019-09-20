@@ -4,7 +4,9 @@ import csv
 import datetime
 import pyttsx3
 import numpy as np
+import pandas as pd
 from tkinter import *
+from time import *
 from PIL import Image
 
 engine = pyttsx3.init('sapi5')
