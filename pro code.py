@@ -4,7 +4,6 @@ import csv
 import datetime
 import pyttsx3
 import numpy as np
-import pandas as pd
 from tkinter import *
 from PIL import Image
 
