@@ -11,7 +11,7 @@ from PIL import Image
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[1].id)
 
 
 def talkToMe(audio):
@@ -20,6 +20,7 @@ def talkToMe(audio):
 
 
 talkToMe("Welcome to Recognising System")
+
 root = Tk()
 root.geometry('690x550')
 root.title("Automatic Recognising Attendance System")
@@ -286,6 +287,11 @@ def TrackImages():
         talkToMe("First Train Images")
 
 
+def Rootexit():
+    talkToMe("Thank You")
+    root.destroy()
+
+
 takeImg = Button(root, text="Add Student", command=TakeImages, bg="#3eff00", activebackground="#0055ff",
                  activeforeground="white", bd=4, font=('times', 15, ' bold '))
 takeImg.place(x=50, y=240)
@@ -295,7 +301,7 @@ trainImg.place(x=220, y=240)
 trackImg = Button(root, text="Track Images", command=TrackImages, bg="#3eff00", activebackground="#0055ff",
                   activeforeground="white", bd=4, font=('times', 15, ' bold '))
 trackImg.place(x=390, y=240)
-quitroot = Button(root, text="Quit", fg="white", command=root.destroy, bg="#ff1111", activebackground="Red",
+quitroot = Button(root, text="Quit", fg="white", command=Rootexit, bg="#ff1111", activebackground="Red",
                   activeforeground="white", bd=4, font=('times', 15, ' bold '))
 quitroot.place(x=570, y=240)
 root.mainloop()
