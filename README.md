@@ -16,6 +16,5 @@ python-dateutil		2.8.0
 pytz			2019.1
 pywinpty		0.5.5
 setuptools		40.8.0
-six			1.12.0
 sqlparse		0.3.0
 opencv-contrib-python	4.1.0.25	
