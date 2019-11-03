@@ -5,6 +5,9 @@ Attendance Record in CSV File
 <h1>Project Requirements</h1>
 
 Pillow			6.0.0
+image			1.5.27
+ipython-genutils	0.2.0
+numpy			1.16.4
 opencv-python		4.1.0.25
 pandas			0.24.2
 pip			19.1.1
