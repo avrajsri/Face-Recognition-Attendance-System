@@ -270,14 +270,14 @@ def TrackImages():
             z3 = "     "
             z4 = "          "
             for row in data:
-                count += 1
+                count = count + 1
                 listNodes.insert(END, z1 + row[2] + z2 + row[3] + z3 + row[0] + z4 + row[1])
                 if (count == 1):
                     talkToMe("Wlecome ")
                 if (count > 1):
                     talkToMe(row[1])
 
-        count -= 1
+        count =count - 1
         message.configure(text=str(count) + " Students Attendance Record")
         talkToMe(str(count) + " Students Attendance Record")
 
